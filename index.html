@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energia Geradores - Soluções Profissionais em Energia para Brasília</title>
+    <title>JCE Geradores - Soluções Profissionais em Energia para Brasília</title>
     <meta name="description" content="Conte conosco para proteger seu serviço, projeto ou evento com soluções de energia confiáveis. Profissionais especializados e atendimento de excelência em todo o DF.">
     
     <!-- Tailwind CSS -->
@@ -52,7 +52,7 @@
     <!-- =========== 0. Navigation Bar (Fixed) =========== -->
     <header id="navbar" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-900">Energia<span class="text-blue-600"> Geradores</span></a>
+            <a href="#" class="text-2xl font-bold text-gray-900">JCE<span class="text-blue-600"> Geradores</span></a>
             <nav class="hidden lg:flex space-x-8 items-center">
                 <a href="#diferenciais" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Diferenciais</a>
                 <a href="#servicos" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Serviços</a>
@@ -321,7 +321,7 @@
     <!-- =========== 8. Footer =========== -->
     <footer class="bg-gray-900 text-gray-400 py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>Energia Geradores © 2025</p>
+            <p>JCE Geradores © 2025</p>
             <div class="mt-4 flex justify-center space-x-4">
                 <a href="#" class="hover:text-white transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
                 <a href="#" class="hover:text-white transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
@@ -365,15 +365,24 @@
                 // Close all other items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
-                        otherItem.querySelector('.faq-answer').classList.add('hidden');
-                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
-                        otherItem.querySelector('.faq-question i').classList.remove('rotate-180');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherIcon = otherItem.querySelector('.faq-question i');
+                        
+                        if (otherAnswer) {
+                            otherAnswer.classList.add('hidden');
+                            otherAnswer.style.maxHeight = null;
+                        }
+                        if (otherIcon) {
+                            otherIcon.classList.remove('rotate-180');
+                        }
                     }
                 });
                 
                 // Toggle current item
                 answer.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
+                if (icon) {
+                    icon.classList.toggle('rotate-180');
+                }
                 if (!isVisible) {
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 } else {
